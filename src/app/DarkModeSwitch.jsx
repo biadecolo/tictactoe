@@ -1,15 +1,12 @@
-// src/components/DarkModeSwitch.jsx
 'use client';
 
 import { useState, useEffect } from 'react';
 
 export default function DarkModeSwitch() {
-  // Initialize theme state to null or 'light' on both server and client
-  // This ensures consistent initial render for hydration.
-  const [theme, setTheme] = useState(null); // Or 'light' as a safe default
+
+  const [theme, setTheme] = useState(null); 
 
   useEffect(() => {
-    // This code only runs on the client after initial render
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -26,7 +23,6 @@ export default function DarkModeSwitch() {
   }, []);
 
   useEffect(() => {
-    // Update the <html> class and localStorage whenever the theme state changes
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
@@ -34,18 +30,14 @@ export default function DarkModeSwitch() {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
-    // Do nothing if theme is still null (initial server render)
   }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
-  // Render a placeholder or the default light mode until hydration completes
-  // This prevents a mismatch
   if (theme === null) {
     return (
-      // Render a skeleton loader that matches the button's size
       <div className="mb-4 h-10 w-10 animate-pulse rounded-full bg-gray-200" />
     );
   }
