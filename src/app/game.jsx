@@ -29,7 +29,7 @@ function Board({ xIsNext, squares, onPlay }) {
   } else if (isDraw) {
     status = <span className="text-md font-semibold text-yellow-700 bg-yellow-100 px-3 py-1 rounded">Oops, we tied!</span>;
   } else {
-    status = <span className="text-md text-gray-700">{`${xIsNext ? "X" : "O"} is next.`}</span>;
+    status = <span className="text-md text-gray-700 dark:text-indigo-100">{`${xIsNext ? "X" : "O"} is next.`}</span>;
   }
 
   return (
