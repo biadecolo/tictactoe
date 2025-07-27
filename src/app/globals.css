@@ -22,5 +22,46 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  
+}
+.square {
+  background: oklch(96.2% .018 272.314);
+  border-radius: 5px;
+  float: left;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 64px;
+  height: 64px;
+  margin: 4px;
+  padding: 0;
+  text-align: center;
+  width: 64px;  
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-info {
+  margin-left: 50px;
 }
